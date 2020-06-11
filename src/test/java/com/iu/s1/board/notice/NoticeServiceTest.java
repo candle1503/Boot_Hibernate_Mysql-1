@@ -19,12 +19,12 @@ class NoticeServiceTest {
 	
 	@Test
 	void boardListTest()throws Exception{
-		Pageable pageable = PageRequest.of(0, 10, Sort.Direction.DESC, "num");
-		List<NoticeVO> ar = noticeService.boardList(pageable, "");
-		for(NoticeVO noticeVO:ar) {
-			System.out.println("num : "+noticeVO.getNum());
-			System.out.println("num : "+noticeVO.getTitle());
-		}
+//		Pageable pageable = PageRequest.of(0, 10, Sort.Direction.DESC, "num");
+//		List<NoticeVO> ar = noticeService.boardList(pageable, "");
+//		for(NoticeVO noticeVO:ar) {
+//			System.out.println("num : "+noticeVO.getNum());
+//			System.out.println("num : "+noticeVO.getTitle());
+//		}
 	}
 
 }

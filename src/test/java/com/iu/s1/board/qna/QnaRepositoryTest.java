@@ -16,13 +16,16 @@ class QnaRepositoryTest {
 	
 	@Test
 	public void insertTest() throws Exception {
+		
+		for(int i=0;i<100;i++) {
 		QnaVO qnaVO = new QnaVO();
 		qnaVO.setTitle("title");
 		qnaVO.setContents("contents");
 		qnaVO.setWriter("writer");
 		
 		qnaVO = qnaService.boardWrite(qnaVO);
-		assertNotNull(qnaVO);
+		}
+		//assertNotNull(qnaVO);
 		
 	}
 
