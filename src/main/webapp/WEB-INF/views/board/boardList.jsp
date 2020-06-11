@@ -13,7 +13,7 @@
 	<div class="container">
 		<h2>${board}List</h2>
 		<form id="frm" class="col-sm-4" action="./${board}List">
-			<input type="hidden" name="page" id="p">
+			<input type="hidden" name="curPage" id="p">
 			<div class="input-group">
 				<select class="form-control" id="sel1" name="kind">
 					<option id="title" value="title">title</option>
@@ -75,8 +75,9 @@
 	</div>
 	<script type="text/javascript">
 		$(".custompager").click(function(){
+			alert("ddd");
 			var page=$(this).attr("title");
-			$("#p").val(page);
+			$("#p").val(page*1+1);
 			$("#frm").submit();
 		});
 	
