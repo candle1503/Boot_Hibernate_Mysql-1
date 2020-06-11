@@ -6,6 +6,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NoticeRepository extends JpaRepository<NoticeVO, Long> {
+	//select
+	//findBy컬러명 조건 ....
+	
 	
 	public int countByTitleContaining(String search);
 	

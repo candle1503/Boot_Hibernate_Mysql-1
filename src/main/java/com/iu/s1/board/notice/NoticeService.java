@@ -19,7 +19,8 @@ public class NoticeService {
 	
 	public List<NoticeVO> boardList(Pager pager)throws Exception{
 		pager.makeRow();
-		pager.makePage(noticeRepository.count());
+		pager.makePage(noticeRepository.countByTitleContaining(pager.getSearch()));
+		
 		Pageable pageable = PageRequest.of((int)pager.getStartRow(), pager.getPerPage(), Sort.Direction.DESC, "num");
 		if(pager.getKind().equals("writer")) {
 			
