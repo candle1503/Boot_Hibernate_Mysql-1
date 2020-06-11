@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,6 +54,15 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardVO", new QnaVO());
 		mv.setViewName("board/boardWrite");
+		return mv;
+	}
+	
+	@PostMapping("qnaWrite")
+	public ModelAndView boardWrite(QnaVO qnaVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		qnaVO = qnaService.boardWrite(qnaVO);
+		mv.setViewName("redirect:./qnaList");
+		
 		return mv;
 	}
 	

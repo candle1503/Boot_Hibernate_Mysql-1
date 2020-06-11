@@ -58,23 +58,23 @@
 		</table>
 
 		<div>
-			<span><a href="#" class="pager" title="0">&lt;&lt;</a></span>
-			<span><a href="#" class="pager" title="${page.number-1}"> &lt;</a></span>
+			<span><a href="#" class="custompager" title="0">&lt;&lt;</a></span>
+			<span><a href="#" class="custompager" title="${page.number-1}"> &lt;</a></span>
 			<c:forEach begin="${page.number}" end="${page.number+4}" var="i">
 				
 				<c:if test="${i lt page.totalPages}">
-					<a href="#" class="pager" title="${i}">${i+1}</a>
+					<a href="#" class="custompager" title="${i}">${i+1}</a>
 				</c:if>
 			</c:forEach>
-			<span><a href="#" class="pager" title="${page.number+1}">&gt;</a></span>
-			<span><a href="#" class="pager" title="${page.totalPages-1}">&gt;&gt;</a></span>
+			<span><a href="#" class="custompager" title="${page.number+1}">&gt;</a></span>
+			<span><a href="#" class="custompager" title="${page.totalPages-1}">&gt;&gt;</a></span>
 			
 		</div>
 
 		<a href="./${board}Write" class="btn btn=danger">write</a>
 	</div>
 	<script type="text/javascript">
-		$(".pager").click(function(){
+		$(".custompager").click(function(){
 			var page=$(this).attr("title");
 			$("#p").val(page);
 			$("#frm").submit();
