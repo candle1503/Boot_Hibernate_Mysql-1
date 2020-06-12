@@ -31,9 +31,9 @@
 				<td>${boardVO.hit}</td>
 			</tr>
 		</table>
-		<c:forEach items="${boardVO.noticeFileVOs}" var="fileVO">
+		<c:forEach items="${boardVO.boadFiles}" var="fileVO">
 			<h2>${fileVO.oriName}</h2>
-			<img src="../upload/notice/${fileVO.fileName}"/>
+			<img src="../upload/${board}/${fileVO.fileName}"/>
 		</c:forEach>
 		<a class="btn btn-info" href="${board}Update?num=${boardVO.num}">Update</a>
 		<a class="btn btn-danger" href="${board}Delete?num=${boardVO.num}">delete</a>

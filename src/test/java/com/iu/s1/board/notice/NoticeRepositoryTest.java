@@ -40,7 +40,7 @@ class NoticeRepositoryTest {
 		noticeFileVO.setNoticeVO(noticeVO);
 		noticeFileVOs.add(noticeFileVO);
 		
-		noticeVO.setNoticeFileVOs(noticeFileVOs);
+		//noticeVO.setNoticeFileVOs(noticeFileVOs);
 	}
 	
 	//insert
@@ -94,7 +94,7 @@ class NoticeRepositoryTest {
 		// opt.isPresent()
 		System.out.println("Select One Test");
 		System.out.println(noticeVO.getRegDate());
-		System.out.println(noticeVO.getNoticeFileVOs().get(0).getFileName());
+		//System.out.println(noticeVO.getNoticeFileVOs().get(0).getFileName());
 		assertNotNull(noticeVO);
 		
 	}

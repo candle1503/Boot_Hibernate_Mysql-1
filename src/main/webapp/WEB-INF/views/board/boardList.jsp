@@ -13,7 +13,7 @@
 	<div class="container">
 		<h2>${board}List</h2>
 		<form id="frm" class="col-sm-4" action="./${board}List">
-			<input type="hidden" name="curPage" id="p">
+			<input type="hidden" name="page" id="p">
 			<div class="input-group">
 				<select class="form-control" id="sel1" name="kind">
 					<option id="title" value="title">title</option>
@@ -43,11 +43,10 @@
 				<tr>
 					<td>${vo.num}</td>
 					<td>
-						<%-- <c:catch>
-							<c:forEach begin="1" end="${vo.dept}" var="i">
-								ㄴ	
-							</c:forEach>
-						</c:catch> --%> <a href="${board}Select?num=${vo.num}">${vo.title}</a>
+					 <c:catch>
+					 <c:forEach begin="1" end="${vo.depth}">--</c:forEach>
+					 </c:catch>
+					 <a href="${board}Select?num=${vo.num}">${vo.title}</a>
 					</td>
 					<td>${vo.writer}</td>
 					<td>${vo.contents}</td>
@@ -58,16 +57,22 @@
 		</table>
 
 		<div>
-			<span><a href="#" class="custompager" title="0">&lt;&lt;</a></span>
-			<span><a href="#" class="custompager" title="${page.number-1}"> &lt;</a></span>
-			<c:forEach begin="${page.number}" end="${page.number+4}" var="i">
-				
-				<c:if test="${i lt page.totalPages}">
-					<a href="#" class="custompager" title="${i}">${i+1}</a>
+			<ul class="pagination">
+				<c:if test="${pager.curBlock>1}">
+					<li><a href="#" class="custompager" title="${pager.startNum-1}">이전</a></li>
 				</c:if>
-			</c:forEach>
-			<span><a href="#" class="custompager" title="${page.number+1}">&gt;</a></span>
-			<span><a href="#" class="custompager" title="${page.totalPages-1}">&gt;&gt;</a></span>
+				
+				<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="p">
+					<li><a href="#" class="custompager" title="${p}">${p}</a></li>
+				</c:forEach>
+				
+				<c:if test="${pager.curBlock<pager.totalBlock}">
+					<li><a href="#" class="custompager" title="${pager.lastNum+1}">다음</a></li>
+				</c:if>
+			
+	
+			</ul>
+			
 			
 		</div>
 
@@ -75,9 +80,9 @@
 	</div>
 	<script type="text/javascript">
 		$(".custompager").click(function(){
-			alert("ddd");
+			
 			var page=$(this).attr("title");
-			$("#p").val(page*1+1);
+			$("#p").val(page);
 			$("#frm").submit();
 		});
 	
@@ -102,5 +107,7 @@
 			}
 		}
 	</script>
+	
+	
 </body>
 </html>

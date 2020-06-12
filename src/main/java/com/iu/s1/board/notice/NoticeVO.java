@@ -23,6 +23,6 @@ import lombok.EqualsAndHashCode;
 public class NoticeVO extends BoardVO{
 	
 	@OneToMany(mappedBy = "noticeVO", fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
-	private List<NoticeFileVO> noticeFileVOs;
+	private List<NoticeFileVO> boadFiles;
 	
 }
